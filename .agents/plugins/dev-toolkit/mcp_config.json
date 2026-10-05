@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fetch-docs": {
+      "command": "uvx",
+      "args": ["mcp-server-fetch"]
+    },
+    "custom-python-tools": {
+      "command": "python",
+      "args": ["examples/demo_mcp/local_mcp_server.py"]
+    }
+  }
+}

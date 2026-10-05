@@ -1,0 +1,32 @@
+{
+  "safety-gate": {
+    "enabled": true,
+    "PreToolUse": [
+      {
+        "matcher": "run_command",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -ExecutionPolicy Bypass -File scripts/safety_check.ps1",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "post-edit-checker": {
+    "enabled": true,
+    "PostToolUse": [
+      {
+        "matcher": "write_to_file|replace_file_content",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -ExecutionPolicy Bypass -File scripts/post_edit_lint.ps1",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
